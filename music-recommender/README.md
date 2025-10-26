@@ -16,7 +16,14 @@ A machine learning-based music recommendation system that suggests similar songs
 
 ## 🚀 Installation & Setup
 
-### Step 1: Install Required Packages
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Chetnapadhi/Music_Recommendation.git
+cd Music_Recommendation/music-recommender
+```
+
+### Step 2: Install Required Packages
 
 Open PowerShell in the project directory and run:
 
@@ -24,7 +31,7 @@ Open PowerShell in the project directory and run:
 pip install -r requirements.txt
 ```
 
-### Step 2: Train the Model
+### Step 3: Train the Model
 
 Navigate to the music-recommender directory and run:
 
@@ -33,14 +40,18 @@ cd music-recommender
 python src/model/train.py
 ```
 
+**Note:** The repository includes a sample Hindi songs dataset. For a larger dataset:
+1. Download the Spotify Million Song Dataset from Kaggle
+2. Replace `src/data/spotify_millsongdata.csv` with your dataset
+3. Re-run the training script
+
 This will:
-- Load the Spotify dataset
-- Sample 5000 songs
+- Load the dataset (Hindi songs sample or your custom dataset)
 - Process and clean the text data
 - Generate similarity matrix
 - Save the trained models in the `models/` folder
 
-**Note:** Training may take 5-10 minutes depending on your system.
+**Note:** Training may take 5-10 minutes depending on your system and dataset size.
 
 ### Step 3: Run the Streamlit App
 
@@ -99,9 +110,20 @@ music-recommender/
 
 ## 📝 Notes
 
-- The model is trained on a sample of 5000 songs to reduce training time
+- The repository includes a sample Hindi songs dataset for testing
+- Model files (`*.pkl`) are excluded from git due to size (>100MB)
+- You need to train the model locally after cloning the repository
+- For larger datasets, download from Kaggle and replace the sample CSV
 - Album covers are fetched from Spotify API
 - Default album cover is shown if a song is not found on Spotify
+
+## 🗂️ Model Files
+
+The trained model files are generated locally and stored in the `models/` directory:
+- `df.pkl` - Processed dataset with song information
+- `similarity.pkl` - Cosine similarity matrix for recommendations
+
+These files are automatically created when you run the training script and are excluded from version control due to their large size.
 
 ## 🤝 Contributing
 
